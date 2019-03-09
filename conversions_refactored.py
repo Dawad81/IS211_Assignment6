@@ -30,30 +30,23 @@ def convert(fromUnit=str, toUnit=str, value=int):
     fromUnit = fromUnit.lower()
     toUnit = toUnit.lower()
     if fromUnit == toUnit:
-        answere = num
-        return float(answere)
+        answer = num
+        return float(answer)
     else:
         try:
             if fromUnit and toUnit in temp_conversions_dict:
-                answere = temp_conversions_dict[fromUnit][toUnit]
-                return round(answere, 2)
+                answer = temp_conversions_dict[fromUnit][toUnit]
+                return round(answer, 2)
             elif fromUnit and toUnit in distance_conversion_dict:
-                answere = distance_conversion_dict[fromUnit][toUnit]
-                return round(answere, 2)
+                answer = distance_conversion_dict[fromUnit][toUnit]
+                return round(answer, 2)
         except:
             raise ConversionNotPossible
 
 
-
-#def testConvert(self):
-#    """convertFahrenheitToCelsius should give known result with known input"""
-#    for value in self.KnownTempsCFK:
-#        answer = conversions_refactored.convert(degree[1])
-#        self.assertEqual(degree[0], answer)
-
 if __name__ == "__main__":
-    print convert('kelvin', 'kelvin', 0)
     print convert('miles', 'miles', 23)
     print convert('celsius', 'kelvin', 500)
     print convert('miles', 'meters', 1)
     print convert('yards', 'kelvin', 34)
+
