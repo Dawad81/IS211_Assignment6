@@ -76,10 +76,3 @@ def convert(fromUnit=str, toUnit=str, value=int):
                 return round(answer, 2)
         except KeyError as error:
             raise ConversionNotPossible(error)
-
-
-if __name__ == "__main__":
-    print convert('miles', 'miles', 23)
-    print convert('celsius', 'kelvin', 500)
-    print convert('miles', 'meters', 1)
-    print convert('yards', 'kelvin', 34)
