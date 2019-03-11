@@ -2,21 +2,22 @@
 # -*- coding: utf-8 -*-
 """This runs test on the conversion.py & conversions_refactored.py modules."""
 
+
+import unittest
 import conversions
 import conversions_refactored
-import unittest
 
 
-class KnownValues (unittest.TestCase):
+class KnownValues(unittest.TestCase):
     """This class test Known temperature values against the temperature
     conversion functions in conversions.py module."""
-    KnownTempsCFK =[[300.00, 572.00, 573.15],
-                    [-10.00, 14.00, 263.15],
-                    [-273.15, -459.67, 0.00],
-                    [390.00, 734.00, 663.15],
-                    [140.00, 284.00, 413.15],
-                    [320.00, 608.00, 593.15],
-                    [-150.00, -238.00, 123.15]]
+    KnownTempsCFK = [[300.00, 572.00, 573.15],
+                     [-10.00, 14.00, 263.15],
+                     [-273.15, -459.67, 0.00],
+                     [390.00, 734.00, 663.15],
+                     [140.00, 284.00, 413.15],
+                     [320.00, 608.00, 593.15],
+                     [-150.00, -238.00, 123.15]]
 
 
     def testConvertCelsiusToKelvin(self):
@@ -77,10 +78,9 @@ class testConvert(unittest.TestCase):
         self.assertEqual(conversions_refactored.convert(
             'fahrenheit', 'kelvin', 734), 663.15)
         self.assertEqual(conversions_refactored.convert(
-            'kelvin','fahrenheit', 0), -459.67)
+            'kelvin', 'fahrenheit', 0), -459.67)
         self.assertEqual(conversions_refactored.convert(
-            'kelvin','celsius', 413.15), 140.00)
-
+            'kelvin', 'celsius', 413.15), 140.00)
 
 
     def testConvertDistance(self):
@@ -97,6 +97,7 @@ class testConvert(unittest.TestCase):
                                                         50), 54.68)
         self.assertEqual(conversions_refactored.convert('meters', 'miles',
                                                         50), 0.03)
+
 
     def testConvertToSelf(self):
         """convert() should return same known value inputted when fromUnit is
